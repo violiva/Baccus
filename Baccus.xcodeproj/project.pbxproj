@@ -12,6 +12,9 @@
 		AD66F0B51A49644E002B2E20 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AD66F0B41A49644E002B2E20 /* Images.xcassets */; };
 		AD66F0B81A49644E002B2E20 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD66F0B61A49644E002B2E20 /* LaunchScreen.xib */; };
 		AD66F0C41A49644E002B2E20 /* BaccusTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AD66F0C31A49644E002B2E20 /* BaccusTests.m */; };
+		AD66F0CF1A496BB4002B2E20 /* VOSWineModel.m in Sources */ = {isa = PBXBuildFile; fileRef = AD66F0CE1A496BB4002B2E20 /* VOSWineModel.m */; };
+		AD66F0D41A4978AC002B2E20 /* VOSWineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD66F0D21A4978AC002B2E20 /* VOSWineViewController.m */; };
+		AD66F0D51A4978AC002B2E20 /* VOSWineViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD66F0D31A4978AC002B2E20 /* VOSWineViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +38,11 @@
 		AD66F0BD1A49644E002B2E20 /* BaccusTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BaccusTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AD66F0C21A49644E002B2E20 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AD66F0C31A49644E002B2E20 /* BaccusTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaccusTests.m; sourceTree = "<group>"; };
+		AD66F0CD1A496BB4002B2E20 /* VOSWineModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VOSWineModel.h; sourceTree = "<group>"; };
+		AD66F0CE1A496BB4002B2E20 /* VOSWineModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VOSWineModel.m; sourceTree = "<group>"; };
+		AD66F0D11A4978AC002B2E20 /* VOSWineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VOSWineViewController.h; sourceTree = "<group>"; };
+		AD66F0D21A4978AC002B2E20 /* VOSWineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VOSWineViewController.m; sourceTree = "<group>"; };
+		AD66F0D31A4978AC002B2E20 /* VOSWineViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VOSWineViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +89,8 @@
 				AD66F0B41A49644E002B2E20 /* Images.xcassets */,
 				AD66F0B61A49644E002B2E20 /* LaunchScreen.xib */,
 				AD66F0AD1A49644E002B2E20 /* Supporting Files */,
+				AD66F0D01A496BC7002B2E20 /* Models */,
+				AD66F0D61A4978BE002B2E20 /* Controlers */,
 			);
 			path = Baccus;
 			sourceTree = "<group>";
@@ -109,6 +119,25 @@
 				AD66F0C21A49644E002B2E20 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		AD66F0D01A496BC7002B2E20 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				AD66F0CD1A496BB4002B2E20 /* VOSWineModel.h */,
+				AD66F0CE1A496BB4002B2E20 /* VOSWineModel.m */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		AD66F0D61A4978BE002B2E20 /* Controlers */ = {
+			isa = PBXGroup;
+			children = (
+				AD66F0D11A4978AC002B2E20 /* VOSWineViewController.h */,
+				AD66F0D21A4978AC002B2E20 /* VOSWineViewController.m */,
+				AD66F0D31A4978AC002B2E20 /* VOSWineViewController.xib */,
+			);
+			name = Controlers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -191,6 +220,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AD66F0D51A4978AC002B2E20 /* VOSWineViewController.xib in Resources */,
 				AD66F0B81A49644E002B2E20 /* LaunchScreen.xib in Resources */,
 				AD66F0B51A49644E002B2E20 /* Images.xcassets in Resources */,
 			);
@@ -210,7 +240,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AD66F0D41A4978AC002B2E20 /* VOSWineViewController.m in Sources */,
 				AD66F0B31A49644E002B2E20 /* AppDelegate.m in Sources */,
+				AD66F0CF1A496BB4002B2E20 /* VOSWineModel.m in Sources */,
 				AD66F0B01A49644E002B2E20 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
