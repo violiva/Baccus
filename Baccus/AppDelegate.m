@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "VOSWineModel.h"
 #import "VOSWineViewController.h"
+#import "VOSWebViewController.h"
 
 @interface AppDelegate ()
 
@@ -25,13 +26,15 @@
                                                    type:@"Tinto"
                                                  origin:@"El Bierzo"
                                                  grapes:@[@"Mencia"]
-                                         wineCompanyWeb:[NSURL URLWithString:@"http://www.dominiodetares.com/index.php/es/vinos/bembibre"]
+                                         wineCompanyWeb:[NSURL URLWithString:@"http://www.dominiodetares.com/index.php/es/vinos/bembibre"]  //   http://www.20minutos.es/
                                                   notes:@"Este vino muestra toda la complejidad y la elegancia de la variedad Mencía. En fase visual luce un color rojo picota muy cubierto con tonalidades en el menisco. En nariz aparecen recuerdos frutales muy intensos de frutas rojas (frambuesa, cereza) y una potente ciruela negra, así como tonos florales de la gama de las rosas y violetas, vegetales muy elegantes y complementarios, hojarasca verde, tabaco y maderas aromáticas (sándalo) que le brindan un toque ciertamente perfumado."
                                                  rating:3
                                                   photo:[UIImage imageNamed:@"bembibre.jpg"]];
     
-    VOSWineViewController *wineVC = [[VOSWineViewController alloc] initWithModel:tintorro];
-    self.window.rootViewController = wineVC;
+    // VOSWineViewController *wineVC = [[VOSWineViewController alloc] initWithModel:tintorro];
+    VOSWebViewController *webVC = [[VOSWebViewController alloc] initWithModel:tintorro];
+    
+    self.window.rootViewController = webVC;
     
     
     // Override point for customization after application launch.

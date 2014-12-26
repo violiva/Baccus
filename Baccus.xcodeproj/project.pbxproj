@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		AD64D3751A4D767300FD7E64 /* splitView_score_glass@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AD64D3741A4D767300FD7E64 /* splitView_score_glass@2x.png */; };
 		AD64D3781A4D781100FD7E64 /* bembibre.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AD64D3771A4D781100FD7E64 /* bembibre.jpg */; };
+		AD64D37C1A4D8CA100FD7E64 /* VOSWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD64D37A1A4D8CA100FD7E64 /* VOSWebViewController.m */; };
+		AD64D37D1A4D8CA100FD7E64 /* VOSWebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD64D37B1A4D8CA100FD7E64 /* VOSWebViewController.xib */; };
 		AD66F0B01A49644E002B2E20 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AD66F0AF1A49644E002B2E20 /* main.m */; };
 		AD66F0B31A49644E002B2E20 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AD66F0B21A49644E002B2E20 /* AppDelegate.m */; };
 		AD66F0B51A49644E002B2E20 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AD66F0B41A49644E002B2E20 /* Images.xcassets */; };
@@ -32,6 +34,9 @@
 /* Begin PBXFileReference section */
 		AD64D3741A4D767300FD7E64 /* splitView_score_glass@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "splitView_score_glass@2x.png"; sourceTree = "<group>"; };
 		AD64D3771A4D781100FD7E64 /* bembibre.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bembibre.jpg; sourceTree = "<group>"; };
+		AD64D3791A4D8CA100FD7E64 /* VOSWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VOSWebViewController.h; sourceTree = "<group>"; };
+		AD64D37A1A4D8CA100FD7E64 /* VOSWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VOSWebViewController.m; sourceTree = "<group>"; };
+		AD64D37B1A4D8CA100FD7E64 /* VOSWebViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VOSWebViewController.xib; sourceTree = "<group>"; };
 		AD66F0AA1A49644E002B2E20 /* Baccus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Baccus.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AD66F0AE1A49644E002B2E20 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AD66F0AF1A49644E002B2E20 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -150,6 +155,9 @@
 				AD66F0D11A4978AC002B2E20 /* VOSWineViewController.h */,
 				AD66F0D21A4978AC002B2E20 /* VOSWineViewController.m */,
 				AD66F0D31A4978AC002B2E20 /* VOSWineViewController.xib */,
+				AD64D3791A4D8CA100FD7E64 /* VOSWebViewController.h */,
+				AD64D37A1A4D8CA100FD7E64 /* VOSWebViewController.m */,
+				AD64D37B1A4D8CA100FD7E64 /* VOSWebViewController.xib */,
 			);
 			name = Controlers;
 			sourceTree = "<group>";
@@ -236,6 +244,7 @@
 			files = (
 				AD64D3751A4D767300FD7E64 /* splitView_score_glass@2x.png in Resources */,
 				AD66F0D51A4978AC002B2E20 /* VOSWineViewController.xib in Resources */,
+				AD64D37D1A4D8CA100FD7E64 /* VOSWebViewController.xib in Resources */,
 				AD66F0B81A49644E002B2E20 /* LaunchScreen.xib in Resources */,
 				AD64D3781A4D781100FD7E64 /* bembibre.jpg in Resources */,
 				AD66F0B51A49644E002B2E20 /* Images.xcassets in Resources */,
@@ -258,6 +267,7 @@
 			files = (
 				AD66F0D41A4978AC002B2E20 /* VOSWineViewController.m in Sources */,
 				AD66F0B31A49644E002B2E20 /* AppDelegate.m in Sources */,
+				AD64D37C1A4D8CA100FD7E64 /* VOSWebViewController.m in Sources */,
 				AD66F0CF1A496BB4002B2E20 /* VOSWineModel.m in Sources */,
 				AD66F0B01A49644E002B2E20 /* main.m in Sources */,
 			);
