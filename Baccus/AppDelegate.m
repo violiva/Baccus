@@ -31,11 +31,16 @@
                                                  rating:3
                                                   photo:[UIImage imageNamed:@"bembibre.jpg"]];
     
-    // VOSWineViewController *wineVC = [[VOSWineViewController alloc] initWithModel:tintorro];
+    // Creamos los controladores
+    VOSWineViewController *wineVC = [[VOSWineViewController alloc] initWithModel:tintorro];
     VOSWebViewController *webVC = [[VOSWebViewController alloc] initWithModel:tintorro];
     
-    self.window.rootViewController = webVC;
+    // Creamos un combinador
+    UITabBarController *tabVC = [[UITabBarController alloc] init];
+    tabVC.viewControllers = @[wineVC, webVC];
     
+    
+    self.window.rootViewController = tabVC;
     
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];

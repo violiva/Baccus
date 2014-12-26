@@ -19,6 +19,8 @@
     if ( self = [super initWithNibName:nil
                                 bundle:nil]){
         _model = aModel;
+        
+        self.title = aModel.name;
     }
     return self;
 }
@@ -54,6 +56,7 @@
     self.grapesLabel.text = [self arrayToString:self.model.grapes];
     
     [self displayRating: self.model.rating];
+
 }
 
 -(void) clearRatings{
