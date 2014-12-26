@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>01A232D6-11B3-4626-9348-F5F683AC0C7D</string>
+	<key>IDESourceControlProjectName</key>
+	<string>Baccus</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>6CD422AE0A512232D58BBD9782F4E31B8A4189FA</key>
+		<string>https://github.com/violiva/Baccus.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Baccus.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>6CD422AE0A512232D58BBD9782F4E31B8A4189FA</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/violiva/Baccus.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>6CD422AE0A512232D58BBD9782F4E31B8A4189FA</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>6CD422AE0A512232D58BBD9782F4E31B8A4189FA</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Baccus</string>
+		</dict>
+	</array>
+</dict>
+</plist>

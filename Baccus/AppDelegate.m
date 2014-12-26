@@ -7,6 +7,8 @@
 //
 
 #import "AppDelegate.h"
+#import "VOSWineModel.h"
+#import "VOSWineViewController.h"
 
 @interface AppDelegate ()
 
@@ -17,6 +19,21 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    
+    VOSWineModel *tintorro = [VOSWineModel wineWithame:@"Bembibre"
+                                        wineCompanyName:@"Dominio de Tares"
+                                                   type:@"Tinto"
+                                                 origin:@"El Bierzo"
+                                                 grapes:@[@"Mencia"]
+                                         wineCompanyWeb:[NSURL URLWithString:@"http://www.dominiodetares.com/index.php/es/vinos/bembibre"]
+                                                  notes:@"Este vino muestra toda la complejidad y la elegancia de la variedad Mencía. En fase visual luce un color rojo picota muy cubierto con tonalidades en el menisco. En nariz aparecen recuerdos frutales muy intensos de frutas rojas (frambuesa, cereza) y una potente ciruela negra, así como tonos florales de la gama de las rosas y violetas, vegetales muy elegantes y complementarios, hojarasca verde, tabaco y maderas aromáticas (sándalo) que le brindan un toque ciertamente perfumado."
+                                                 rating:3
+                                                  photo:[UIImage imageNamed:@"bembibre.jpg"]];
+    
+    VOSWineViewController *wineVC = [[VOSWineViewController alloc] initWithModel:tintorro];
+    self.window.rootViewController = wineVC;
+    
+    
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];

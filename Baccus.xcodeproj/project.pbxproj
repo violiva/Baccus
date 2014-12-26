@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AD64D3751A4D767300FD7E64 /* splitView_score_glass@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AD64D3741A4D767300FD7E64 /* splitView_score_glass@2x.png */; };
+		AD64D3781A4D781100FD7E64 /* bembibre.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AD64D3771A4D781100FD7E64 /* bembibre.jpg */; };
 		AD66F0B01A49644E002B2E20 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AD66F0AF1A49644E002B2E20 /* main.m */; };
 		AD66F0B31A49644E002B2E20 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AD66F0B21A49644E002B2E20 /* AppDelegate.m */; };
 		AD66F0B51A49644E002B2E20 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AD66F0B41A49644E002B2E20 /* Images.xcassets */; };
@@ -28,6 +30,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		AD64D3741A4D767300FD7E64 /* splitView_score_glass@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "splitView_score_glass@2x.png"; sourceTree = "<group>"; };
+		AD64D3771A4D781100FD7E64 /* bembibre.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bembibre.jpg; sourceTree = "<group>"; };
 		AD66F0AA1A49644E002B2E20 /* Baccus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Baccus.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AD66F0AE1A49644E002B2E20 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AD66F0AF1A49644E002B2E20 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -63,6 +67,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AD64D3761A4D76C500FD7E64 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				AD64D3771A4D781100FD7E64 /* bembibre.jpg */,
+				AD64D3741A4D767300FD7E64 /* splitView_score_glass@2x.png */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
 		AD66F0A11A49644E002B2E20 = {
 			isa = PBXGroup;
 			children = (
@@ -89,6 +102,7 @@
 				AD66F0B41A49644E002B2E20 /* Images.xcassets */,
 				AD66F0B61A49644E002B2E20 /* LaunchScreen.xib */,
 				AD66F0AD1A49644E002B2E20 /* Supporting Files */,
+				AD64D3761A4D76C500FD7E64 /* Resources */,
 				AD66F0D01A496BC7002B2E20 /* Models */,
 				AD66F0D61A4978BE002B2E20 /* Controlers */,
 			);
@@ -220,8 +234,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AD64D3751A4D767300FD7E64 /* splitView_score_glass@2x.png in Resources */,
 				AD66F0D51A4978AC002B2E20 /* VOSWineViewController.xib in Resources */,
 				AD66F0B81A49644E002B2E20 /* LaunchScreen.xib in Resources */,
+				AD64D3781A4D781100FD7E64 /* bembibre.jpg in Resources */,
 				AD66F0B51A49644E002B2E20 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -428,6 +444,7 @@
 				AD66F0C91A49644E002B2E20 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		AD66F0CA1A49644E002B2E20 /* Build configuration list for PBXNativeTarget "BaccusTests" */ = {
 			isa = XCConfigurationList;
@@ -436,6 +453,7 @@
 				AD66F0CC1A49644E002B2E20 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
