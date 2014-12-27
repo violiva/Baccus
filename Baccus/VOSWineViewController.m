@@ -7,6 +7,7 @@
 //
 
 #import "VOSWineViewController.h"
+#import "VOSWebViewController.h"
 
 //@interface VOSWineViewController ()
 //
@@ -21,6 +22,7 @@
         _model = aModel;
         
         self.title = aModel.name;
+
     }
     return self;
 }
@@ -32,6 +34,11 @@
     [super viewWillAppear:animated];
     
     [self syncModelWithView];
+    
+    self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:0.5
+                                                                        green:0
+                                                                         blue:0.13
+                                                                        alpha:0.6];
 }
 
 
@@ -42,7 +49,12 @@
 
 #pragma mark - Actions
 -(IBAction)displayWeb:(id)sender{
-    NSLog(@"Go to %@", self.model.wineCompanyWeb );
+    // Creamos el ViewController
+    VOSWebViewController *webVC = [[VOSWebViewController alloc] initWithModel:self.model];
+    
+    // Hacemos push para añadir el controlador en el NavigationController
+    [self.navigationController pushViewController:webVC
+                                         animated:YES];
 }
 
 #pragma mark -utils

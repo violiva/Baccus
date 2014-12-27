@@ -24,7 +24,7 @@
 @property (strong, nonatomic) NSString *wineCompanyName;
 
 // Métodos de clase
-+(id) wineWithame: (NSString *) aName
++(id) wineWithName: (NSString *) aName
   wineCompanyName: (NSString *) aWineCompanyName
              type: (NSString *) aType
            origin: ( NSString *) anOrigin

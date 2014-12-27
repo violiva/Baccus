@@ -21,7 +21,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
-    VOSWineModel *tintorro = [VOSWineModel wineWithame:@"Bembibre"
+    VOSWineModel *tintorro = [VOSWineModel wineWithName:@"Bembibre"
                                         wineCompanyName:@"Dominio de Tares"
                                                    type:@"Tinto"
                                                  origin:@"El Bierzo"
@@ -30,17 +30,44 @@
                                                   notes:@"Este vino muestra toda la complejidad y la elegancia de la variedad Mencía. En fase visual luce un color rojo picota muy cubierto con tonalidades en el menisco. En nariz aparecen recuerdos frutales muy intensos de frutas rojas (frambuesa, cereza) y una potente ciruela negra, así como tonos florales de la gama de las rosas y violetas, vegetales muy elegantes y complementarios, hojarasca verde, tabaco y maderas aromáticas (sándalo) que le brindan un toque ciertamente perfumado."
                                                  rating:3
                                                   photo:[UIImage imageNamed:@"bembibre.jpg"]];
+
+    VOSWineModel *albarinno = [VOSWineModel wineWithName:@"Zárate"
+                                         wineCompanyName:@"Zárate"
+                                                    type:@"white"
+                                                  origin:@"Rias Bajas"
+                                                  grapes:@[@"Albariño"]
+                                          wineCompanyWeb:[NSURL URLWithString:@"http://bodegas-zarate.com/productos/vinos/albarino-zarate/"]
+                                                   notes:@"El albariño Zarate es un vino blanco monovarietal que pertenece a la Denominación de Origen Rías Baixas. Considerado por la crítica especializada como uno de los grandes vinos blancos del mundo, el albariño ya es todo un mito."
+                                                  rating:4
+                                                   photo:[UIImage imageNamed:@"zarate.gif"]];
+    
+    VOSWineModel *champagne = [VOSWineModel wineWithName:@"Comtes de Champagne"
+                                         wineCompanyName:@"Champagne Taittinger"
+                                                    type:@"other"
+                                                  origin:@"Champagne"
+                                                  grapes:@[@"Chardonnay"]
+                                          wineCompanyWeb:[NSURL URLWithString:@"http://www.taittinger.fr"]
+                                                   notes:@"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ac nunc purus. Curabitur eu velit mauris. Curabitur magna nisi, ullamcorper ac bibendum ac, laoreet et justo. Praesent vitae tortor quis diam luctus condimentum. Suspendisse potenti. In magna elit, interdum sit amet facilisis dictum, bibendum nec libero. Maecenas pellentesque posuere vehicula. Vivamus eget nisl urna, quis egestas sem. Vivamus at venenatis quam. Sed eu nulla a orci fringilla pulvinar ut eu diam. Morbi nibh nibh, bibendum at laoreet egestas, scelerisque et nisi. Donec ligula quam, semper nec bibendum in, semper eget dolor. In hac habitasse platea dictumst. Maecenas adipiscing semper rutrum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae;"
+                                                  rating:5
+                                                   photo:[UIImage imageNamed:@"comtesDeChampagne.jpg"]];
+    
+    
     
     // Creamos los controladores
-    VOSWineViewController *wineVC = [[VOSWineViewController alloc] initWithModel:tintorro];
-    VOSWebViewController *webVC = [[VOSWebViewController alloc] initWithModel:tintorro];
+    VOSWineViewController *tintoVC  = [[VOSWineViewController alloc] initWithModel:tintorro];
+    VOSWineViewController *blancoVC = [[VOSWineViewController alloc] initWithModel:albarinno];
+    VOSWineViewController *otroVC   = [[VOSWineViewController alloc] initWithModel:champagne];
+
+    // creamos los Navigation Controller para cada uno
+    UINavigationController *tintoNav = [[UINavigationController alloc] initWithRootViewController:tintoVC];
+    UINavigationController *blancoNav = [[UINavigationController alloc] initWithRootViewController:blancoVC];
+    UINavigationController *otroNav = [[UINavigationController alloc] initWithRootViewController:otroVC];
     
-    // Creamos un combinador
-    UITabBarController *tabVC = [[UITabBarController alloc] init];
-    tabVC.viewControllers = @[wineVC, webVC];
+    // Creamos el combinador - TabController
+    UITabBarController *tabVc = [[UITabBarController alloc] init];
+    tabVc.viewControllers = @[tintoNav, blancoNav, otroNav];
     
-    
-    self.window.rootViewController = tabVC;
+    self.window.rootViewController = tabVc;
     
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];

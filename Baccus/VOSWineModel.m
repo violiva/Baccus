@@ -11,7 +11,7 @@
 @implementation VOSWineModel
 
 #pragma mark - Class Methods
-+(id) wineWithame: (NSString *) aName
++(id) wineWithName: (NSString *) aName
   wineCompanyName: (NSString *) aWineCompanyName
              type: (NSString *) aType
            origin: ( NSString *) anOrigin
