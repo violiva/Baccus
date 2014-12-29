@@ -19,6 +19,8 @@
 		AD66F0CF1A496BB4002B2E20 /* VOSWineModel.m in Sources */ = {isa = PBXBuildFile; fileRef = AD66F0CE1A496BB4002B2E20 /* VOSWineModel.m */; };
 		AD66F0D41A4978AC002B2E20 /* VOSWineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD66F0D21A4978AC002B2E20 /* VOSWineViewController.m */; };
 		AD66F0D51A4978AC002B2E20 /* VOSWineViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD66F0D31A4978AC002B2E20 /* VOSWineViewController.xib */; };
+		AD8579351A517E5E00B83478 /* address-book-icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AD8579341A517E5E00B83478 /* address-book-icon@2x.png */; };
+		AD8579371A517F2100B83478 /* attachment_note_mini@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AD8579361A517F2100B83478 /* attachment_note_mini@2x.png */; };
 		ADFFFFE01A4EC6AC00A76856 /* comtesDeChampagne.jpg in Resources */ = {isa = PBXBuildFile; fileRef = ADFFFFDE1A4EC6AC00A76856 /* comtesDeChampagne.jpg */; };
 		ADFFFFE11A4EC6AC00A76856 /* zarate.gif in Resources */ = {isa = PBXBuildFile; fileRef = ADFFFFDF1A4EC6AC00A76856 /* zarate.gif */; };
 /* End PBXBuildFile section */
@@ -54,6 +56,8 @@
 		AD66F0D11A4978AC002B2E20 /* VOSWineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VOSWineViewController.h; sourceTree = "<group>"; };
 		AD66F0D21A4978AC002B2E20 /* VOSWineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VOSWineViewController.m; sourceTree = "<group>"; };
 		AD66F0D31A4978AC002B2E20 /* VOSWineViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VOSWineViewController.xib; sourceTree = "<group>"; };
+		AD8579341A517E5E00B83478 /* address-book-icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "address-book-icon@2x.png"; sourceTree = "<group>"; };
+		AD8579361A517F2100B83478 /* attachment_note_mini@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "attachment_note_mini@2x.png"; sourceTree = "<group>"; };
 		ADFFFFDE1A4EC6AC00A76856 /* comtesDeChampagne.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = comtesDeChampagne.jpg; sourceTree = "<group>"; };
 		ADFFFFDF1A4EC6AC00A76856 /* zarate.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = zarate.gif; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -79,6 +83,8 @@
 		AD64D3761A4D76C500FD7E64 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				AD8579361A517F2100B83478 /* attachment_note_mini@2x.png */,
+				AD8579341A517E5E00B83478 /* address-book-icon@2x.png */,
 				ADFFFFDE1A4EC6AC00A76856 /* comtesDeChampagne.jpg */,
 				ADFFFFDF1A4EC6AC00A76856 /* zarate.gif */,
 				AD64D3771A4D781100FD7E64 /* bembibre.jpg */,
@@ -248,10 +254,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AD8579371A517F2100B83478 /* attachment_note_mini@2x.png in Resources */,
 				AD64D3751A4D767300FD7E64 /* splitView_score_glass@2x.png in Resources */,
 				ADFFFFE01A4EC6AC00A76856 /* comtesDeChampagne.jpg in Resources */,
 				AD66F0D51A4978AC002B2E20 /* VOSWineViewController.xib in Resources */,
 				AD64D37D1A4D8CA100FD7E64 /* VOSWebViewController.xib in Resources */,
+				AD8579351A517E5E00B83478 /* address-book-icon@2x.png in Resources */,
 				AD66F0B81A49644E002B2E20 /* LaunchScreen.xib in Resources */,
 				ADFFFFE11A4EC6AC00A76856 /* zarate.gif in Resources */,
 				AD64D3781A4D781100FD7E64 /* bembibre.jpg in Resources */,
