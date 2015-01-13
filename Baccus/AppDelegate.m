@@ -11,12 +11,7 @@
 #import "VOSWineViewController.h"
 #import "VOSWebViewController.h"
 
-@interface AppDelegate ()
-
-@end
-
 @implementation AppDelegate
-
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
@@ -63,28 +58,6 @@
     UINavigationController *blancoNav = [[UINavigationController alloc] initWithRootViewController:blancoVC];
     UINavigationController *otroNav = [[UINavigationController alloc] initWithRootViewController:otroVC];
 
-    
-    // --- Set image to the TabBarController icons 
-    UIImage* anImage1 = [UIImage imageNamed:@"address-book-icon.png"];
-    UIImage* anImage2 = [UIImage imageNamed:@"attachment_note_mini.png"];
-
-    UITabBarItem * firstItem = [ [UITabBarItem alloc]  initWithTitle:[NSString stringWithFormat:@"%@", tintoVC.title]
-                                                                image:anImage2
-                                                        selectedImage:anImage1];
-    [tintoVC setTabBarItem:firstItem];
-    
-    UITabBarItem * secondItem = [ [UITabBarItem alloc]  initWithTitle:[NSString stringWithFormat:@"%@", blancoVC.title]
-                                                                image:anImage2
-                                                        selectedImage:anImage1];
-    [blancoVC setTabBarItem:secondItem];   // Aquí se asigna al tabBarController
-
-    UITabBarItem * thirdItem = [ [UITabBarItem alloc]  initWithTitle:[NSString stringWithFormat:@"%@", otroVC.title]
-                                                                image:anImage2
-                                                        selectedImage:anImage1];
-    [otroVC setTabBarItem:thirdItem];   // Aquí se asigna al tabBarController
-    /////////////////////////////////
-    
-    
     // Creamos el combinador - TabController
     UITabBarController *tabVc = [[UITabBarController alloc] init];
     tabVc.viewControllers = @[tintoNav, blancoNav, otroNav];

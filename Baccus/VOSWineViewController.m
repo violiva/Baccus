@@ -19,10 +19,14 @@
     
     if ( self = [super initWithNibName:nil
                                 bundle:nil]){
-        _model = aModel;
-        
-        self.title = aModel.name;
+        UIImage* anImage1 = [UIImage imageNamed:@"address-book-icon.png"];
+        UIImage* anImage2 = [UIImage imageNamed:@"attachment_note_mini.png"];
 
+        _model = aModel;
+        [self setTabBarItem:[[UITabBarItem alloc] initWithTitle:self.model.name
+                                                          image:anImage2
+                                                  selectedImage:anImage1]];
+        
     }
     return self;
 }

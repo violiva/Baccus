@@ -14,7 +14,6 @@
     if ( self = [super initWithNibName:nil
                                 bundle:nil]){
         _model = aModel;
-        
         self.title = @"Web";
         
     }
@@ -32,21 +31,21 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
-
 #pragma mark - UIWebViewDelegate
 -(void) webViewDidFinishLoad:(UIWebView *)webView{
     self.activityView.hidden = YES;
     [self.activityView stopAnimating];
     
+}
+
+// Si nos interesa limitar que la página web no pueda navegar a más enlaces, podemos limitar su funcionamiento modificando el comportamiento del delegado
+-(BOOL) webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request
+ navigationType:(UIWebViewNavigationType)navigationType{
+    if ((navigationType == UIWebViewNavigationTypeLinkClicked) || (navigationType == UIWebViewNavigationTypeFormSubmitted) ){
+        return NO;
+    } else {
+        return YES;
+    }
 }
 
 #pragma mark -Utils
@@ -58,7 +57,6 @@
     [self.activityView startAnimating];
     
     [self.browser loadRequest:[NSURLRequest requestWithURL: aURL]];
-    
 
 }
 
