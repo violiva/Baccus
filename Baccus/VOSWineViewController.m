@@ -42,7 +42,7 @@
     self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:0.5
                                                                         green:0
                                                                          blue:0.13
-                                                                        alpha:0.6];
+                                                                        alpha:1];
 }
 
 

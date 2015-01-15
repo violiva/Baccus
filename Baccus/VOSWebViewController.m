@@ -52,7 +52,7 @@
 -(void) displayURL: (NSURL *) aURL{
     
     self.browser.delegate = self;
-    
+
     self.activityView.hidden = NO;
     [self.activityView startAnimating];
     
