@@ -6,6 +6,11 @@
 //  Copyright (c) 2014 Vicente Oliva de la Serna. All rights reserved.
 //
 
+#define REDWINE_SECTION 0
+#define WHITEWINE_SECTION 1
+#define OTHERWINE_SECTION 2
+
+
 #import "AppDelegate.h"
 #import "VOSWineModel.h"
 #import "VOSWineViewController.h"
@@ -21,15 +26,25 @@
     // Creamos el modelo
     VOSWineryModel * winery = [[VOSWineryModel alloc] init];
     
-    // creamos el controlador
+    // creamos los controladores
     VOSWineryTableViewController * wineryVC = [[VOSWineryTableViewController alloc] initWithModel:winery style:UITableViewStylePlain];
+    VOSWineViewController * wineVC = [[VOSWineViewController alloc] initWithModel:[winery redWineAtIndex:0]];
 
-    // creamos el Navigation Controller
-    UINavigationController * navVC = [[UINavigationController alloc] initWithRootViewController:wineryVC];
+    // creamos los Navigation Controllers
+    UINavigationController * wineryNav = [[UINavigationController alloc] initWithRootViewController:wineryVC];
+    UINavigationController * wineNav = [[UINavigationController alloc] initWithRootViewController:wineVC];
 
-    // Creamos el combinador - TabController
+    // Creamos el combinador - SplitViewController
+    UISplitViewController * splitVC = [[UISplitViewController alloc] init];
+    [splitVC setViewControllers:@[wineryNav, wineNav]];
     
-    self.window.rootViewController = navVC;
+    // Asignamos delegado
+    splitVC.delegate = wineVC;
+    wineryVC.delegate = wineVC;
+    
+    
+    // Lo asignamos como controlador raiz
+    self.window.rootViewController = splitVC;
     
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];

@@ -8,24 +8,21 @@
 
 #import "VOSWineViewController.h"
 #import "VOSWebViewController.h"
+#import "VOSWineryTableViewController.h"
 
 //@interface VOSWineViewController ()
 //
 //@end
 
-@implementation VOSWineViewController
+@implementation VOSWineViewController 
 
 -(id) initWithModel: (VOSWineModel *) aModel{
     
     if ( self = [super initWithNibName:nil
                                 bundle:nil]){
-        UIImage* anImage1 = [UIImage imageNamed:@"address-book-icon.png"];
-        UIImage* anImage2 = [UIImage imageNamed:@"attachment_note_mini.png"];
 
         _model = aModel;
-        [self setTabBarItem:[[UITabBarItem alloc] initWithTitle:self.model.name
-                                                          image:anImage2
-                                                  selectedImage:anImage1]];
+        self.title = aModel.name;
         
     }
     return self;
@@ -97,4 +94,29 @@
     }
     return repr;
 }
+
+#pragma mark - UISplitViewControllerDelegate
+-(void)splitViewController:(UISplitViewController *)svc willChangeToDisplayMode:(UISplitViewControllerDisplayMode)displayMode{
+    if (displayMode == UISplitViewControllerDisplayModePrimaryHidden) {
+        
+        // Hay que poner el botón en mi barra de navegación
+        self.navigationItem.rightBarButtonItem = svc.displayModeButtonItem;
+        
+    }else if (displayMode == UISplitViewControllerDisplayModeAllVisible){
+        
+        // Hay que quitar el botón de la barra de navegación
+        self.navigationItem.rightBarButtonItem = nil;
+    }
+
+}
+
+#pragma mark - VOSWineryTableViewControllerDelegate
+-(void)wineryTableViewController:(VOSWineryTableViewController *) wineryVC
+                 didSelecteWine: (VOSWineModel *) aWine{
+    self.model = aWine;
+    self.title = aWine.name;
+    
+    [self syncModelWithView];
+}
+
 @end

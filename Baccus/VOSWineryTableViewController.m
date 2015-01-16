@@ -127,11 +127,8 @@
         wine = [self.model otherWineAtIndex:indexPath.row];
     }
     
-    // Creamos un controlador para dicho vino
-    VOSWineViewController * wineVC = [[VOSWineViewController alloc] initWithModel:wine];
-    
-    // hacemos un push al navigation controller dentro del cual estamos
-    [self.navigationController pushViewController:wineVC animated:YES];
+    [self.delegate wineryTableViewController:self didSelecteWine:wine];
+
 }
 
 
