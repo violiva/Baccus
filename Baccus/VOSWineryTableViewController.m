@@ -69,7 +69,6 @@
     }else{
           return self.model.otherWinesCount;
     }
-    return 0;
 }
 
 -(NSString *) tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
@@ -128,7 +127,13 @@
     }
     
     [self.delegate wineryTableViewController:self didSelecteWine:wine];
+    
+    // Notificaciones
+    NSNotification * notif = [NSNotification notificationWithName:NEW_WINE_NOTIFICATION_NAME
+                                                           object:self
+                                                         userInfo:@{WINE_KEY: wine}];
 
+    [[NSNotificationCenter defaultCenter] postNotification:notif];
 }
 
 

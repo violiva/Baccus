@@ -7,6 +7,7 @@
 //
 
 #import "VOSWebViewController.h"
+#import "VOSWineryTableViewController.h"
 
 @implementation VOSWebViewController
 
@@ -24,12 +25,42 @@
     [super viewWillAppear:animated];
     
     [self displayURL: self.model.wineCompanyWeb];
+    
+    // Alta en Centro de notificaciones
+    NSNotificationCenter * center = [NSNotificationCenter defaultCenter];
+    [center addObserver:self
+               selector:@selector(wineDidChange:)
+                   name:NEW_WINE_NOTIFICATION_NAME
+                 object:nil];
+}
+
+-(void)wineDidChange:(NSNotification *) notification{
+    NSDictionary * dictionary = [notification userInfo];
+    VOSWineModel * newWine = [dictionary objectForKey:WINE_KEY];
+    
+    // Actualizamos el modelo
+    self.model = newWine;
+
+    // En caso de que el título fuera en base al modelo tendríamos que ponerlo aquí, en este caso no es necesario y se puede omitir esta línea
+    self.title = @"Web";
+    
+    [self displayURL:self.model.wineCompanyWeb];
+    
+    
+}
+
+-(void) viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+    
+    // Baja del centro de notificaciones
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
 
 #pragma mark - UIWebViewDelegate
 -(void) webViewDidFinishLoad:(UIWebView *)webView{
@@ -59,5 +90,7 @@
     [self.browser loadRequest:[NSURLRequest requestWithURL: aURL]];
 
 }
+
+
 
 @end

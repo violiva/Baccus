@@ -13,6 +13,8 @@
 #define REDWINE_SECTION 0
 #define WHITEWINE_SECTION 1
 #define OTHERWINE_SECTION 2
+#define NEW_WINE_NOTIFICATION_NAME @"newWine"
+#define WINE_KEY @"wine"
 
 @class VOSWineryTableViewController;
 
