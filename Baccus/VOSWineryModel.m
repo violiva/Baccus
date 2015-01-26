@@ -20,6 +20,8 @@
 
 @implementation VOSWineryModel
 
+#pragma mark -  Properties
+
 -(NSUInteger) redWinesCount{
     return [self.redWines count];
 }
@@ -32,6 +34,7 @@
     return [self.otherWines count];
 }
 
+#pragma mark -  Init
 
 -(id) init{
     if (self = [super init]){
@@ -72,6 +75,7 @@
     return self;
 }
 
+#pragma mark -  Others
 
 -(VOSWineModel *) redWineAtIndex:(NSUInteger) index{
     return [self.redWines objectAtIndex:index];
@@ -84,7 +88,6 @@
 -(VOSWineModel *) otherWineAtIndex:(NSUInteger) index{
     return [self.otherWines objectAtIndex:index];
 }
-
 
 
 @end

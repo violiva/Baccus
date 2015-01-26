@@ -7,15 +7,12 @@
 //
 
 #import "VOSWineryTableViewController.h"
-#import "VOSWineModel.h"
 #import "VOSWineViewController.h"
 
 
-@interface VOSWineryTableViewController ()
-
-@end
-
 @implementation VOSWineryTableViewController
+
+#pragma mark -  Init
 
 -(id) initWithModel: (VOSWineryModel * ) aModel
               style:(UITableViewStyle) aStyle{
@@ -25,6 +22,8 @@
     }
     return self;
 }
+
+#pragma mark -  View lifeCycle
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
@@ -36,20 +35,55 @@
     
 }
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
+
+#pragma mark - NSUserDefaults
+-(NSDictionary *)setDefaults{
+    NSUserDefaults * defaults = [NSUserDefaults standardUserDefaults];
     
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
+    //elegimos por defacto el primero de los vinos tintos
+    NSDictionary * defaultWineCoords = @{SECTION_KEY: @(REDWINE_SECTION), ROW_KEY:@0};
     
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    // Lo asignamos como valor por defecto
+    [defaults setObject:defaultWineCoords
+                 forKey:LAST_WINE_KEY];
+    
+    // Guardamos
+    [defaults synchronize];
+    
+    return defaultWineCoords;
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+-(void)saveLastSelectedWineAtSection:(NSUInteger) section row:(NSUInteger) row{
+    NSUserDefaults * defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setObject:@{SECTION_KEY: @(section), ROW_KEY:@(row)}
+                 forKey:LAST_WINE_KEY];
+    
+    [defaults synchronize];
 }
+
+-(VOSWineModel *)lastSelectedWine{
+    NSIndexPath * indexPath = nil;
+    NSDictionary * coords = nil;
+    
+    coords = [[NSUserDefaults standardUserDefaults] objectForKey:LAST_WINE_KEY];
+    
+    if ( coords == nil ) {
+        // No hay ningún valor para la clave LAST_WINE_KEY
+        // Esto quiere decir que es la primera vez que se llama a la aplicación , por defecto ponemos igual que teníamos
+        // al principio un valor por defecto
+        coords = [self setDefaults];
+    }
+    // Si devuelve algo distinto de nil, quiere decir que ya se había guardado algún valor (último vno seleccionado) y que lo ha recuperado ok.
+    
+    // Si ya tenemos las coordenadas del último vino seleccionado ( o uno cualquiera por defecto), las convertimos a un NSIndexPath.
+
+    indexPath = [NSIndexPath indexPathForRow:[[coords objectForKey:ROW_KEY] integerValue]
+                                   inSection:[[coords objectForKey:SECTION_KEY] integerValue]];
+
+    return [self wineForIndexPath:indexPath];
+
+}
+
 
 #pragma mark - Table view data source
 
@@ -86,16 +120,8 @@
     static NSString * cellIdentifier = @"Cell";
     
     // Averiguar de qué vino está pidiendo datos
-    VOSWineModel * wine = nil;
+    VOSWineModel * wine = [self wineForIndexPath:indexPath];
     
-    if ( indexPath.section == REDWINE_SECTION){
-        wine = [self.model redWineAtIndex:indexPath.row];
-    }else if (indexPath.section == WHITEWINE_SECTION){
-        wine = [self.model whiteWineAtIndex:indexPath.row];
-    }else{
-        wine = [self.model otherWineAtIndex:indexPath.row];
-    }
-
     UITableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     if (cell == nil){
         // tenemos que crear la celda a mano
@@ -112,20 +138,35 @@
     return cell;
 }
 
+#pragma mark -  Utils
+
+- (VOSWineModel *) wineForIndexPath:(NSIndexPath *)indexPath{
+    // Averiguamos de qué vino se trata
+    VOSWineModel * wine = nil;
+    
+    if (indexPath.section == REDWINE_SECTION) {
+        wine = [self.model redWineAtIndex:indexPath.row];
+    }
+    else if (indexPath.section == WHITEWINE_SECTION) {
+        wine = [self.model whiteWineAtIndex:indexPath.row];
+    }
+    else {
+        wine = [self.model otherWineAtIndex:indexPath.row];
+    }
+    
+    return wine;
+}
+
+
+#pragma mark - Table view Delegate
 -(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
 
     // suponemos que estamos dentro de un Navigation Controller
     
     // Averiguamos de que vino se trata
-    VOSWineModel * wine = nil;
-    if ( indexPath.section == REDWINE_SECTION){
-        wine = [self.model redWineAtIndex:indexPath.row];
-    }else if (indexPath.section == WHITEWINE_SECTION){
-        wine = [self.model whiteWineAtIndex:indexPath.row];
-    }else{
-        wine = [self.model otherWineAtIndex:indexPath.row];
-    }
+    VOSWineModel * wine = [self wineForIndexPath:indexPath];
     
+    // Avisamos al delegado
     [self.delegate wineryTableViewController:self didSelecteWine:wine];
     
     // Notificaciones
@@ -134,6 +175,10 @@
                                                          userInfo:@{WINE_KEY: wine}];
 
     [[NSNotificationCenter defaultCenter] postNotification:notif];
+    
+    // Salvamos el último vino seleccionado para la próxima vez que se abra la aplicación mostrar el último vino seleccionado.
+    [self saveLastSelectedWineAtSection:indexPath.section
+                                    row:indexPath.row];
 }
 
 

@@ -9,6 +9,11 @@
 @import Foundation;
 #import "VOSWineModel.h"
 
+
+#define REDWINE_SECTION 0
+#define WHITEWINE_SECTION 1
+#define OTHERWINE_SECTION 2
+
 @interface VOSWineryModel : NSObject
 
 @property (readonly, nonatomic) NSUInteger redWinesCount;
