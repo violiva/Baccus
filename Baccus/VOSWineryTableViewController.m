@@ -40,8 +40,8 @@
 -(NSDictionary *)setDefaults{
     NSUserDefaults * defaults = [NSUserDefaults standardUserDefaults];
     
-    //elegimos por defacto el primero de los vinos tintos
-    NSDictionary * defaultWineCoords = @{SECTION_KEY: @(REDWINE_SECTION), ROW_KEY:@0};
+    //elegimos por defecto el primero de los vinos tintos
+    NSDictionary * defaultWineCoords = @{SECTION_KEY: @(REDWINE_SECTION_NUMBER), ROW_KEY:@0};
     
     // Lo asignamos como valor por defecto
     [defaults setObject:defaultWineCoords
@@ -53,7 +53,7 @@
     return defaultWineCoords;
 }
 
--(void)saveLastSelectedWineAtSection:(NSUInteger) section row:(NSUInteger) row{
+-(void)saveLastSelectedWineAtSection:(NSInteger) section row:(NSUInteger) row{
     NSUserDefaults * defaults = [NSUserDefaults standardUserDefaults];
     [defaults setObject:@{SECTION_KEY: @(section), ROW_KEY:@(row)}
                  forKey:LAST_WINE_KEY];
@@ -96,9 +96,9 @@
  numberOfRowsInSection:(NSInteger)section {
     
     // Return the number of rows in the section.
-    if (section == REDWINE_SECTION){
+    if (section == REDWINE_SECTION_NUMBER){
         return self.model.redWinesCount;
-    }else if (section == WHITEWINE_SECTION){
+    }else if (section == WHITEWINE_SECTION_NUMBER){
           return self.model.whiteWinesCount;
     }else{
           return self.model.otherWinesCount;
@@ -106,9 +106,9 @@
 }
 
 -(NSString *) tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
-    if ( section == REDWINE_SECTION){
+    if ( section == REDWINE_SECTION_NUMBER){
         return @"Red wines";
-    }else if ( section == WHITEWINE_SECTION){
+    }else if ( section == WHITEWINE_SECTION_NUMBER){
         return @"White wines";
     }else{
         return @"Other wines";
@@ -144,10 +144,10 @@
     // Averiguamos de qué vino se trata
     VOSWineModel * wine = nil;
     
-    if (indexPath.section == REDWINE_SECTION) {
+    if (indexPath.section == REDWINE_SECTION_NUMBER) {
         wine = [self.model redWineAtIndex:indexPath.row];
     }
-    else if (indexPath.section == WHITEWINE_SECTION) {
+    else if (indexPath.section == WHITEWINE_SECTION_NUMBER) {
         wine = [self.model whiteWineAtIndex:indexPath.row];
     }
     else {
@@ -167,7 +167,7 @@
     VOSWineModel * wine = [self wineForIndexPath:indexPath];
     
     // Avisamos al delegado
-    [self.delegate wineryTableViewController:self didSelecteWine:wine];
+    [self.delegate wineryTableViewController:self didSelectedWine:wine];
     
     // Notificaciones
     NSNotification * notif = [NSNotification notificationWithName:NEW_WINE_NOTIFICATION_NAME
@@ -180,50 +180,5 @@
     [self saveLastSelectedWineAtSection:indexPath.section
                                     row:indexPath.row];
 }
-
-
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

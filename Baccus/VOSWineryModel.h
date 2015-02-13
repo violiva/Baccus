@@ -10,9 +10,9 @@
 #import "VOSWineModel.h"
 
 
-#define REDWINE_SECTION 0
-#define WHITEWINE_SECTION 1
-#define OTHERWINE_SECTION 2
+#define REDWINE_SECTION @"Tinto"
+#define WHITEWINE_SECTION @"Blanco"
+#define OTHERWINE_SECTION @"Rosado"
 
 @interface VOSWineryModel : NSObject
 

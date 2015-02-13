@@ -50,6 +50,7 @@
 
 #pragma mark - Actions
 -(IBAction)displayWeb:(id)sender{
+    
     // Creamos el ViewController
     VOSWebViewController *webVC = [[VOSWebViewController alloc] initWithModel:self.model];
     
@@ -61,14 +62,14 @@
 #pragma mark -utils
 -(void) syncModelWithView{
     self.nameLabel.text = self.model.name;
+    self.wineryNameLabel.text = self.model.wineCompanyName;
+    self.grapesLabel.text = [self arrayToString:self.model.grapes];
     self.typeLabel.text = self.model.type;
     self.originLabel.text = self.model.origin;
-    self.notesLabel.text = self.model.notes;
-    self.wineryNameLabel.text = self.model.wineCompanyName;
-    self.photoView.image = self.model.photo;
-    self.grapesLabel.text = [self arrayToString:self.model.grapes];
-    
     [self displayRating: self.model.rating];
+    self.notesLabel.text = self.model.notes;
+    self.photoView.image = self.model.photo;
+    
 
 }
 
@@ -77,6 +78,7 @@
         imgView.image = nil;
     }
 }
+
 -(void) displayRating:(int) aRating{
     [self clearRatings];
     UIImage *glass = [UIImage imageNamed:@"splitView_score_glass@2x.png"];
@@ -112,7 +114,7 @@
 
 #pragma mark - VOSWineryTableViewControllerDelegate
 -(void)wineryTableViewController:(VOSWineryTableViewController *) wineryVC
-                 didSelecteWine: (VOSWineModel *) aWine{
+                 didSelectedWine: (VOSWineModel *) aWine{
     self.model = aWine;
     self.title = aWine.name;
     

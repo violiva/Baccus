@@ -46,7 +46,6 @@
     
     [self displayURL:self.model.wineCompanyWeb];
     
-    
 }
 
 -(void) viewWillDisappear:(BOOL)animated{

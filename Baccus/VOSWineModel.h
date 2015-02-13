@@ -15,6 +15,7 @@
 
 @property (strong, nonatomic) NSString *type;
 @property (strong, nonatomic) UIImage *photo;
+@property (strong, nonatomic) NSURL *photoURL;
 @property (strong, nonatomic) NSURL *wineCompanyWeb;
 @property (strong, nonatomic) NSString *notes;
 @property (strong, nonatomic) NSString *origin;
@@ -32,7 +33,7 @@
    wineCompanyWeb: (NSURL *) aURL
             notes: (NSString *) aNotes
            rating: (int) aRating
-            photo:(UIImage *) aPhoto;
+          photoURL: (NSURL *) aPhotoURL;
 
 +(id) wineWithName: (NSString *) aName
    wineCompanyName: (NSString *) aWineCompanyName
@@ -51,11 +52,15 @@
     wineCompanyWeb: (NSURL *) aURL
              notes: (NSString *) aNotes
             rating: (int) aRating
-             photo:(UIImage *) aPhoto;
+          photoURL: (NSURL *) aPhotoURL;
 
 -(id) initWithName: (NSString *) aName
    wineCompanyName: (NSString *) aWineCompanyName
               type: (NSString *) aType
             origin: ( NSString *) anOrigin;
+
+// Nuevo inicializador a partir del diccionario de JSON
+-(id) initWithDictionary:(NSDictionary * ) aDict;
+
 
 @end
