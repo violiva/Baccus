@@ -9,9 +9,11 @@
 @import UIKit;
 #import "VOSWineryModel.h"
 
+
 #define REDWINE_SECTION   @"Tinto"
 #define WHITEWINE_SECTION @"Blanco"
 #define OTHERWINE_SECTION @"Rosado"
+
 #define REDWINE_SECTION_NUMBER   0
 #define WHITEWINE_SECTION_NUMBER 1
 #define OTHERWINE_SECTION_NUMBER 2
@@ -31,7 +33,7 @@
                   didSelectedWine:(VOSWineModel *) aModel;
 @end
 
-@interface VOSWineryTableViewController : UITableViewController
+@interface VOSWineryTableViewController : UITableViewController <VOSWineryTableViewControllerDelegate>
 
 @property (strong, nonatomic) VOSWineryModel * model;
 @property (weak, nonatomic) id<VOSWineryTableViewControllerDelegate> delegate;

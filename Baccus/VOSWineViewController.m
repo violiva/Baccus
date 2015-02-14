@@ -28,8 +28,6 @@
     return self;
 }
 
-
-
 // Para mantener sincronizados siempre modelo y vista
 -(void) viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
@@ -41,7 +39,6 @@
                                                                          blue:0.13
                                                                         alpha:1];
 }
-
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -103,7 +100,7 @@
         
         // Hay que poner el botón en mi barra de navegación
         self.navigationItem.rightBarButtonItem = svc.displayModeButtonItem;
-        
+
     }else if (displayMode == UISplitViewControllerDisplayModeAllVisible){
         
         // Hay que quitar el botón de la barra de navegación

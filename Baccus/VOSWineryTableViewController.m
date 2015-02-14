@@ -157,6 +157,15 @@
     return wine;
 }
 
+#pragma mark - VOSWineryTableViewControllerDelegate
+-(void)wineryTableViewController:(VOSWineryTableViewController *)wineryVC didSelectedWine:(VOSWineModel *)aModel{
+    // creamos el controlador
+    VOSWineViewController * wineVC = [[VOSWineViewController alloc] initWithModel:aModel];
+    
+    // hacemos el push al NavigationController en el que nos encontremos.
+    [self.navigationController pushViewController:wineVC
+                                         animated:YES];
+}
 
 #pragma mark - Table view Delegate
 -(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
