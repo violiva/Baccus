@@ -95,6 +95,25 @@
 }
 
 #pragma mark - UISplitViewControllerDelegate
+
+// turn
+- (void)splitViewController:(UISplitViewController *)svc willShowViewController:(UIViewController *)aViewController invalidatingBarButtonItem:(UIBarButtonItem *)button
+{
+    //remove button from navigation bar in detail navigation controller
+    ((UINavigationController *)[svc.viewControllers objectAtIndex:1]).topViewController.navigationItem.rightBarButtonItem = nil;;
+}
+
+// init
+- (void)splitViewController: (UISplitViewController*)svc willHideViewController:(UIViewController *)aViewController withBarButtonItem:(UIBarButtonItem*)barButtonItem forPopoverController: (UIPopoverController*)pc{
+    
+    //add button to navigation bar in detail navigation controller
+    
+    barButtonItem.title = @"Baccus";
+    ((UINavigationController*)[svc.viewControllers objectAtIndex:1]).topViewController.navigationItem.rightBarButtonItem = barButtonItem;
+    
+}
+
+
 -(void)splitViewController:(UISplitViewController *)svc willChangeToDisplayMode:(UISplitViewControllerDisplayMode)displayMode{
     if (displayMode == UISplitViewControllerDisplayModePrimaryHidden) {
         
